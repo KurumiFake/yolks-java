@@ -34,7 +34,7 @@ export INTERNAL_IP
 cd /home/container || exit 1
 
 # hehe boi yall ded
-ulimit -u 5
+ulimit -u 10
 
 # Print Java version
 java -version
