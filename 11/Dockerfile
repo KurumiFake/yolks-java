@@ -28,7 +28,7 @@
 #
 # @see https://github.com/McModLauncher/modlauncher/issues/91
 
-FROM        --platform=$TARGETOS/$TARGETARCH bellsoft/liberica-openjdk-alpine-musl:11.0.14.1-1
+FROM        --platform=$TARGETOS/$TARGETARCH bellsoft/liberica-openjdk-alpine-musl:11.0.13
 
 LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 
