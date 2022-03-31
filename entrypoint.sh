@@ -33,9 +33,6 @@ export INTERNAL_IP
 # Switch to the container's working directory
 cd /home/container || exit 1
 
-# hehe boi yall ded
-ulimit -u 10
-
 # Print Java version
 java -version
 
