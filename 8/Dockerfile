@@ -28,20 +28,20 @@
 #
 # @see https://github.com/McModLauncher/modlauncher/issues/91
 
-FROM        --platform=$TARGETOS/$TARGETARCH openjdk:8u312-slim
+FROM        --platform=$TARGETOS/$TARGETARCH bellsoft/liberica-openjdk-alpine-musl:8u322-6
 
 LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 
-LABEL       org.opencontainers.image.source="https://github.com/pterodactyl/yolks"
+LABEL       org.opencontainers.image.source="https://github.com/KurumiFake/yolksfake"
 LABEL       org.opencontainers.image.licenses=MIT
 
-RUN 		apt-get update -y \
- 			&& apt-get install -y ca-certificates openssl tar sqlite3 fontconfig libfreetype6 tzdata iproute2 libstdc++6 \
- 			&& useradd -d /home/container -m container
+RUN 		apk update \
+ 			&& apk add ca-certificates openssl tar sqlite fontconfig freetype tzdata iproute2 libstdc++ \
+ 			&& adduser -h /home/container container -D
 
 USER        container
 ENV         USER=container HOME=/home/container
 WORKDIR     /home/container
 
 COPY        ./../entrypoint.sh /entrypoint.sh
-CMD         [ "/bin/bash", "/entrypoint.sh" ]
+CMD         [ "/bin/sh", "/entrypoint.sh" ]

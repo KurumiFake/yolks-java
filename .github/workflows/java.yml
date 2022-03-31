@@ -10,19 +10,16 @@ on:
       - java/**
 jobs:
   push:
-    name: "yolksfake:java_${{ matrix.tag }}"
+    name: "yolksfake:java_${{ matrix.tag }}_alpine-musl"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         tag:
           - 8
-          - 8j9
           - 11
-          - 11j9
           - 16
           - 17
-          - 17j9
     steps:
       - uses: actions/checkout@v2
       - uses: docker/setup-qemu-action@v1
@@ -42,4 +39,4 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ghcr.io/kurumifake/yolksfake:java_${{ matrix.tag }}
+            ghcr.io/kurumifake/yolksfake:java_${{ matrix.tag }}_alpine-musl
