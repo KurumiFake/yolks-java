@@ -27,9 +27,10 @@ LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 LABEL       org.opencontainers.image.source="https://github.com/KurumiFake/yolksfake"
 LABEL       org.opencontainers.image.licenses=MIT
 
-RUN 		apk update \
- 			&& apk add ca-certificates openssl tar sqlite fontconfig freetype tzdata iproute2 libstdc++ \
- 			&& adduser -h /home/container container -D
+RUN		apk update \
+		&& apk upgrade \
+		&& apk add ca-certificates openssl tar sqlite fontconfig freetype tzdata iproute2 libstdc++ \
+		&& adduser -h /home/container container -D
 
 USER        container
 ENV         USER=container HOME=/home/container
