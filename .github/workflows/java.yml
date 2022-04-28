@@ -1,4 +1,4 @@
-name: build java
+name: build
 on:
   workflow_dispatch:
   schedule:
@@ -7,10 +7,10 @@ on:
     branches:
       - main
     paths:
-      - java/**
+      - **
 jobs:
   push:
-    name: "yolksfake:java_${{ matrix.tag }}_alpine-musl"
+    name: "yolksfake:java_${{ matrix.tag }}"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -39,4 +39,4 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ghcr.io/kurumifake/yolksfake:java_${{ matrix.tag }}_alpine-musl
+            ghcr.io/fakesusdev/yolksfake:java_${{ matrix.tag }}
