@@ -29,7 +29,7 @@ LABEL       org.opencontainers.image.licenses=MIT
 
 RUN		apk update \
 		&& apk upgrade \
-		&& apk add ca-certificates openssl sqlite fontconfig freetype tzdata libstdc++ \
+		&& apk add ca-certificates openssl sqlite fontconfig freetype ttf-dejavu tzdata libstdc++ \
 		&& adduser -h /home/container container -D
 
 USER        container
