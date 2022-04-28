@@ -6,8 +6,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - **
 jobs:
   push:
     name: "yolksfake:java_${{ matrix.tag }}"
