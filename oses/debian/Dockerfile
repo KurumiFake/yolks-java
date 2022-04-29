@@ -6,9 +6,9 @@ LABEL       org.opencontainers.image.source="https://github.com/KurumiFake/yolks
 LABEL       org.opencontainers.image.licenses=MIT
 
 RUN         apt update && apt upgrade -y \
-		&& apt install -y libc++-dev curl libc6 busybox liblzo2-2 libatomic1 \
+		&& apt install -y libc++-dev curl libc6 iproute2 liblzo2-2 libatomic1 \
 			libfontconfig libicu63 libunwind8 libssl-dev sqlite3 libsqlite3-dev \
-			libmariadbclient-dev libduktape203 locales apt-transport-https ca-certificates tzdata \
+			libmariadbclient-dev libduktape203 locales ca-certificates tzdata \
 		&& apt remove -y --allow-remove-essential bash \
 		&& update-locale lang=en_US.UTF-8 \
 		&& dpkg-reconfigure --frontend noninteractive locales \
