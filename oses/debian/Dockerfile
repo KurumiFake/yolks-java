@@ -12,7 +12,7 @@ RUN         apt update && apt upgrade -y \
 		&& apt remove -y --allow-remove-essential bash \
 		&& update-locale lang=en_US.UTF-8 \
 		&& dpkg-reconfigure --frontend noninteractive locales \
-		&& adduser -h /home/container container -D
+		&& useradd -m -d /home/container -s /bin/dash container
 
 USER        container
 ENV         USER=container HOME=/home/container
@@ -21,4 +21,4 @@ ENV         DEBIAN_FRONTEND noninteractive
 WORKDIR     /home/container
 
 COPY        ./entrypoint.sh /entrypoint.sh
-CMD         [ "/bin/sh", "/entrypoint.sh" ]
+CMD         [ "/bin/dash", "/entrypoint.sh" ]
