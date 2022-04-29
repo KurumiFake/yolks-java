@@ -9,7 +9,7 @@ RUN         apt update && apt upgrade -y \
 		&& apt install -y libc++-dev curl libc6 busybox liblzo2-2 libatomic1 \
 			libfontconfig libicu63 libunwind8 libssl-dev sqlite3 libsqlite3-dev \
 			libmariadbclient-dev libduktape203 locales apt-transport-https ca-certificates tzdata \
-		&& apt remove -y bash coreutils \
+		&& apt remove -y --allow-remove-essential bash coreutils \
 		&& update-locale lang=en_US.UTF-8 \
 		&& dpkg-reconfigure --frontend noninteractive locales \
 		&& adduser -h /home/container container -D
