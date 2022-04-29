@@ -12,7 +12,7 @@ RUN         apt update && apt upgrade -y \
 		&& apt remove -y bash coreutils \
 		&& update-locale lang=en_US.UTF-8 \
 		&& dpkg-reconfigure --frontend noninteractive locales \
-		&& useradd -m -d /home/container -s /bin/ash container
+		&& adduser -h /home/container container -D
 
 USER        container
 ENV         USER=container HOME=/home/container
